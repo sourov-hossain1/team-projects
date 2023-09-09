@@ -4,6 +4,7 @@ import { FaCalendar, FaEye, FaHome } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import img from "../../../assets/answer-questions.png";
+import { formatDistanceToNow, parseISO } from "date-fns";
 
 const QuestionBanner = () => {
   const [questions, setQuestions] = useState([]);
@@ -90,7 +91,10 @@ const QuestionBanner = () => {
                                         <FaCalendar />
                                       </span>
                                       <span className=" opacity-60 font-semibold ">
-                                        {question.date}
+                                        {formatDistanceToNow(
+                                          parseISO(question.date)
+                                        )}{" "}
+                                        ago
                                       </span>
                                     </div>
                                   </div>

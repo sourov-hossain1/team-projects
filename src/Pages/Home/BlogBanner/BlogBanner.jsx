@@ -20,7 +20,7 @@ const BlogBanner = () => {
         <img className="my-8 ps-4 w-80" src={rcnt} alt="" />
       </div>
 
-      <div className="grid grid-cols-2 w-[80%] h-40 gap-4">
+      <div className="grid grid-cols-2 w-[100%] h-40 gap-4">
         <Carousel
           showThumbs={false}
           showStatus={false}
