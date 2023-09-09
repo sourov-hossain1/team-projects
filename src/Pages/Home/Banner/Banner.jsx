@@ -13,10 +13,10 @@ const Banner = () => {
           </h2>
 
           <div className="mt-2 lg:mt-8 ">
-            <button className="btn btn-xs bg-white  text-sm lg:text-lg">
+            <button className="btn  bg-white  text-sm lg:text-lg">
               Learn More
             </button>
-            <button className="btn-success btn btn-xs text-sm lg:text-lg ms-4">
+            <button className="btn-success btn text-sm lg:text-lg ms-4">
               Learn More
             </button>{" "}
           </div>
