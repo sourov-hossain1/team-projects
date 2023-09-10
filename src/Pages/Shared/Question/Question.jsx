@@ -32,7 +32,7 @@ const Question = () => {
       </div>
 
       {/* Dropdown Menu and Search */}
-      <div className="flex flex-col md:flex-row bg-white max-w-screen-2xl mx-auto p-4 md:p-0 mb-16">
+      <div className="flex flex-col md:flex-row items-center bg-white max-w-screen-2xl mx-auto p-4 md:p-0 mb-16">
         <div className="w-full md:w-1/4 py-4 md:px-4">
           <select className="p-2 border-1 border-blue-950 bg-base-200 w-full">
             <option value="all">All Questions</option>
@@ -47,16 +47,16 @@ const Question = () => {
             placeholder="Type here"
             className="input input-bordered input-info w-full max-w-xs md:max-w-full mb-2 md:mb-0 md:mr-2"
           />
-          <button className="btn btn-sm btn-primary">Search</button>
+          <button className="btn btn-primary">Search</button>
           {/* Ask Question */}
-          <Link to="/qna" className="md:ml-2 btn-sm">
+          <Link to="/qna" className="md:ml-2 ">
             <btn
               href="#_"
               className="relative inline-flex items-center justify-center px-10 py-2 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
-              <span className="relative">Ask Ques</span>
+              <span className="relative">Ask Question</span>
             </btn>
           </Link>
         </div>
@@ -64,7 +64,7 @@ const Question = () => {
 
       <div className="max-w-screen-2xl mx-auto  ">
         <div className="lg:flex gap-2">
-          <div className=" lg:w-[70%]">
+          <div className="lg:w-[70%]">
             {questions.map((question) => (
               <QuestionTable
                 key={question._id}
@@ -73,7 +73,7 @@ const Question = () => {
             ))}
           </div>
 
-          <div className=" lg:w-[30%] ps-24">
+          <div className="lg:w-[30%] ps-24">
             <h2 className="font-semibold text-2xl mt-4">-Categories </h2>
             <span className="divider pb-4" />
 

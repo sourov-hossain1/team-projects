@@ -19,7 +19,7 @@ const FlipCard = () => {
             backStyle={styles.card}
             frontComponent={
               <div className="bg-[#92C0DA] rounded-tl-[120px] flex items-end justify-end pl-16 ">
-                <h4 className="vertical-lr pb-10  text-4xl uppercase font-bold">
+                <h4 className="vertical-lr pb-10  text-2xl font-serif uppercase font-bold">
                   ask question
                 </h4>
                 <img className="h-[380px]" src={answer} alt="" />
@@ -37,14 +37,16 @@ const FlipCard = () => {
                   Etiam congue, sem id vulputate condimentum, nibh arcu lobortis
                   massa, et posuere lacus...
                 </p>
-                <button className="btn btn-primary my-6 ms-8">
-                  Ask A Question
-                </button>
+                <div className="text-center">
+                  <button className="btn btn-primary my-6 ">
+                    Ask A Question
+                  </button>
+                </div>
               </div>
             }
           />
-          <div className="text-center mx-auto absolute right-[38%] -bottom-10 ">
-            <FaQuestion className="w-20 h-20 rounded-full p-2 text-center mx-auto bg-white"></FaQuestion>
+          <div className="text-center mx-auto absolute right-[38%] -bottom-10 w-20 h-20 p-3 rounded-full bg-[#EFEAE6]">
+            <FaQuestion className="w-10 h-10 rounded-full p-2 text-center mx-auto bg-transparent"></FaQuestion>
           </div>
         </div>
 
@@ -55,15 +57,15 @@ const FlipCard = () => {
             frontStyle={styles.card}
             backStyle={styles.card}
             frontComponent={
-              <div className="bg-[#92C0DA] flex items-end justify-end pl-16 ">
-                <h4 className="vertical-lr pb-10  text-4xl uppercase font-bold">
+              <div className="bg-[#f09641] flex items-end justify-end pl-16 ">
+                <h4 className="vertical-lr pb-10  text-2xl font-serif uppercase font-bold">
                   ask question
                 </h4>
                 <img className="h-[380px]" src={answer} alt="" />
               </div>
             }
             backComponent={
-              <div className="bg-[#92C0DA] rounded-bl-[120px] py-5 px-10 min-h-max">
+              <div className="bg-[#92C0DA]  py-5 px-10 min-h-max">
                 <p className="text-3xl py-2 font-bold">
                   <span>Get Help</span> <br />
                   <span>From</span> <br />
@@ -74,14 +76,16 @@ const FlipCard = () => {
                   Etiam congue, sem id vulputate condimentum, nibh arcu lobortis
                   massa, et posuere lacus...
                 </p>
-                <button className="btn btn-primary my-6 ms-8">
-                  Ask A Question
-                </button>
+                <div className="text-center">
+                  <button className="btn btn-primary my-6 ">
+                    Ask A Question
+                  </button>
+                </div>
               </div>
             }
           />
-          <div className="text-center mx-auto absolute right-[38%] -bottom-10 ">
-            <FaThumbsUp className="w-20 h-20 rounded-full p-2 text-center mx-auto bg-white"></FaThumbsUp>
+          <div className="text-center mx-auto absolute right-[38%] -bottom-10 w-20 h-20 p-3 rounded-full bg-[#EFEAE6]">
+            <FaThumbsUp className="w-10 h-10  text-center mx-auto bg-transparent"></FaThumbsUp>
           </div>
         </div>
 
@@ -92,15 +96,15 @@ const FlipCard = () => {
             frontStyle={styles.card}
             backStyle={styles.card}
             frontComponent={
-              <div className="bg-[#92C0DA] flex items-end justify-end pl-16 ">
-                <h4 className="vertical-lr pb-10  text-4xl uppercase font-bold">
+              <div className="bg-[#e5f049] flex items-end justify-end pl-16 ">
+                <h4 className="vertical-lr pb-10  text-2xl font-serif uppercase font-bold">
                   ask question
                 </h4>
                 <img className="h-[380px]" src={answer} alt="" />
               </div>
             }
             backComponent={
-              <div className="bg-[#92C0DA] rounded-bl-[120px] py-5 px-10 min-h-max">
+              <div className="bg-[#92C0DA]  py-5 px-10 min-h-max">
                 <p className="text-3xl py-2 font-bold">
                   <span>Get Help</span> <br />
                   <span>From</span> <br />
@@ -111,14 +115,16 @@ const FlipCard = () => {
                   Etiam congue, sem id vulputate condimentum, nibh arcu lobortis
                   massa, et posuere lacus...
                 </p>
-                <button className="btn btn-primary my-6 ms-8">
-                  Ask A Question
-                </button>
+                <div className="text-center">
+                  <button className="btn btn-primary my-6 ">
+                    Ask A Question
+                  </button>
+                </div>
               </div>
             }
           />
-          <div className="text-center mx-auto absolute right-[38%] -bottom-10 ">
-            <FaThumbsUp className="w-20 h-20 rounded-full p-2 text-center mx-auto bg-white"></FaThumbsUp>
+          <div className="text-center mx-auto absolute right-[38%] -bottom-10 w-20 h-20 p-3 rounded-full bg-[#EFEAE6]">
+            <FaThumbsUp className="w-10 h-10 text-center mx-auto bg-transparent"></FaThumbsUp>
           </div>
         </div>
         {/* Fourth FlipCard */}
@@ -128,8 +134,8 @@ const FlipCard = () => {
             frontStyle={styles.card}
             backStyle={styles.card}
             frontComponent={
-              <div className="bg-[#92C0DA] rounded-br-[120px] flex items-end justify-end pl-16 ">
-                <h4 className="vertical-lr pb-10  text-4xl uppercase font-bold">
+              <div className="bg-[#b43ef4] rounded-br-[120px] flex items-end justify-end pl-16 ">
+                <h4 className="vertical-lr pb-10  text-2xl font-serif uppercase font-bold">
                   ask question
                 </h4>
                 <img className="h-[380px]" src={answer} alt="" />
@@ -147,14 +153,16 @@ const FlipCard = () => {
                   Etiam congue, sem id vulputate condimentum, nibh arcu lobortis
                   massa, et posuere lacus...
                 </p>
-                <button className="btn btn-primary my-6 ms-8">
-                  Ask A Question
-                </button>
+                <div className="text-center">
+                  <button className="btn btn-primary my-6 ">
+                    Ask A Question
+                  </button>
+                </div>
               </div>
             }
           />
-          <div className="text-center mx-auto absolute right-[38%] -bottom-10 ">
-            <FaThumbsUp className="w-20 h-20 rounded-full p-2 text-center mx-auto bg-white"></FaThumbsUp>
+          <div className="text-center mx-auto absolute right-[38%] -bottom-10 w-20 h-20 p-3 rounded-full bg-[#EFEAE6]">
+            <FaThumbsUp className="w-10 h-10 text-center mx-auto bg-transparent"></FaThumbsUp>
           </div>
         </div>
       </div>

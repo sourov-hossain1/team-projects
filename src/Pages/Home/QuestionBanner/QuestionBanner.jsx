@@ -81,8 +81,8 @@ const QuestionBanner = () => {
 
                               <div className="lg:flex justify-between gap-3 mt-1 ">
                                 <div className="">
-                                  <div className="flex gap-4 ">
-                                    <div>
+                                  <div className="flex gap-2 items-center">
+                                    <div className="flex items-center">
                                       <span className="btn btn-outline text-lg btn-sm rounded-2xl">
                                         <BiLike />
                                       </span>
@@ -105,14 +105,14 @@ const QuestionBanner = () => {
                                       </span>
                                     </div>
 
-                                    <div className="flex gap-2 my-2">
+                                    <div className="flex gap-2 items-center">
                                       <span className="  text-lg rounded-2xl opacity-70">
                                         <FaCalendar />
                                       </span>
-                                      <span className=" opacity-60 font-semibold ">
-                                        {/* {formatDistanceToNow(
+                                      <span className="opacity-60 font-semibold ">
+                                        {formatDistanceToNow(
                                           parseISO(question?.date)
-                                        )}{" "} */}
+                                        )}{" "}
                                         ago
                                       </span>
                                     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import {
   FaBookmark,
@@ -14,8 +14,15 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { BiMenu } from "react-icons/Bi";
+import  userImg  from "../../../assets/user.png";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+  }
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -29,13 +36,19 @@ const Navbar = () => {
               </h2>
             </Link>
             <div className="flex justify-center items-center gap-4">
+              {
+                user? <button onClick={handleLogout}>Logout</button>: <Link to="login">Login</Link>
+              }
               <Link>
                 <div className="avatar">
                   <div className="w-8  me-4 my-4 rounded-full  bg-white">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    {
+                      user? <img src={user?.photoURL} /> : <img src={userImg} className="" alt="" />
+                    }
                   </div>
                 </div>
-              </Link>
+              </Link> 
+
               <label
                 htmlFor="my-drawer-2"
                 className=" my-auto drawer-button me-4 lg:hidden text-xl"
