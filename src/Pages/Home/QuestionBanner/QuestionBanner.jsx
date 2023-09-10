@@ -5,6 +5,7 @@ import { TiMessages } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import img from "../../../assets/answer-questions.png";
 import { formatDistanceToNow, parseISO } from "date-fns";
+import rcnt from "../../../assets/recent-posts (1).svg";
 
 const QuestionBanner = () => {
   const [questions, setQuestions] = useState([]);
@@ -13,16 +14,34 @@ const QuestionBanner = () => {
     fetch("https://run-the-stack-server-delta.vercel.app/question")
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data);
+        // Sort the questions by date in descending order
+        data.sort((a, b) => parseISO(b.date) - parseISO(a.date));
+
+        // Take the first 3 items
+        const latestQuestions = data.slice(0, 3);
+
+        setQuestions(latestQuestions);
       });
   }, []);
   return (
     <div className="max-w-screen-xl mx-auto">
-      <div className="flex">
+      <div className="lg:flex">
         <div>
-          <div className="divider divider-horizontal ">OR</div>{" "}
+          <div className=" ">
+            {" "}
+            <div className="">
+              <h2 className="text-green-500 font-bold uppercase text-lg">
+                RECENT Question
+              </h2>
+              <h1 className="text-3xl mb-3 text-black font-bold">
+                Our Latest Question
+              </h1>
+
+              <img className="my-8 ps-4 w-80" src={rcnt} alt="" />
+            </div>
+          </div>{" "}
         </div>
-        <div>
+        <div className="mt-4 ms-8">
           {questions.map((question) => (
             <div className="">
               {/* colum 1 */}
@@ -114,7 +133,11 @@ const QuestionBanner = () => {
           ))}
         </div>
         <div>
-          <img className="w-80" src={img} alt="" />
+          <img
+            className="lg:w-80 w-52 pt-40 lg:ms-8 mx-auto"
+            src={img}
+            alt=""
+          />
         </div>
       </div>
     </div>

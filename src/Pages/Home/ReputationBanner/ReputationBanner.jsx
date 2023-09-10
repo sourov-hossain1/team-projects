@@ -8,8 +8,8 @@ const ReputationBanner = () => {
     <div>
       <div className="ReputationBanner mb-16   bg-blue-900 ">
         <div className=" max-w-screen-xl mx-auto  pt-52 ">
-          <div className="flex gap-16 ">
-            <div className=" w-[40%]">
+          <div className="lg:flex gap-16 ">
+            <div className=" lg:w-[40%]">
               <h2 className=" text-green-400 font-bold uppercase text-lg ">
                 GET REPUTATION
               </h2>
@@ -25,7 +25,7 @@ const ReputationBanner = () => {
               <button className="btn btn-success">Ask a Question</button>
             </div>{" "}
             <div className=" pt-16 w-[60%]">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 gap-4">
                 <div className=" flex gap-4  bg-[#142f5f] text-white py-4 px-8">
                   <FaQuestion className="my-auto text-2xl" />
                   <div className="border opacity-40"></div>

@@ -6,8 +6,8 @@ import { FaDivide, FaLine } from "react-icons/fa";
 const Banner = () => {
   return (
     <div className="bg-base-200 ">
-      <div className="bg-[#0a48b3] lg:rounded-b-[150px] h-48  lg:h-[600px] grid grid-cols-2 justify-center items-center">
-        <div className="ms-4 lg:ms-24">
+      <div className="bg-[#0a48b3] lg:rounded-b-[150px] h-48  lg:h-[600px] grid lg:grid-cols-2 justify-center items-center">
+        <div className=" lg:ms-24">
           <h2 className="text-white font-bold lg:text-5xl text-lg ">
             Run The Stack <br className="pt-4" /> is an QNA Type Website
           </h2>
@@ -25,15 +25,14 @@ const Banner = () => {
           <img className="w-24 lg:w-3/4" src={svg} alt="" />
         </div>
       </div>
-
       {/* Ask Question banner */}
 
-      <div className="grid grid-cols-2 lg:my-20 my-4">
+      <div className="grid lg:grid-cols-2 lg:my-20 my-4">
         <div className="">
           <img src={ofc} alt="" />
         </div>
         <div className="bg-[#172b4d]  flex text-start">
-          <div className="my-auto mx-8">
+          <div className="lg:my-auto my-8 mx-8">
             <h2 className=" text-green-400 font-bold uppercase text-lg ">
               Ask Question
             </h2>
