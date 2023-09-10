@@ -184,7 +184,7 @@ const Login = () => {
           <hr className="h-1" />
           <p className="text-black text-sm pt-2 text-center">
             Do not have an account?{" "}
-            <Link to="registration" className="text-sky-400">
+            <Link to="/registration" className="text-sky-400">
               Registration
             </Link>
           </p>
