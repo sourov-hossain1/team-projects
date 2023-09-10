@@ -91,9 +91,9 @@ const QuestionBanner = () => {
                                         <FaCalendar />
                                       </span>
                                       <span className=" opacity-60 font-semibold ">
-                                        {formatDistanceToNow(
-                                          parseISO(question.date)
-                                        )}{" "}
+                                        {/* {formatDistanceToNow(
+                                          parseISO(question?.date)
+                                        )}{" "} */}
                                         ago
                                       </span>
                                     </div>

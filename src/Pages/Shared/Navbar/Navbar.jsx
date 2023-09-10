@@ -45,7 +45,9 @@ const Navbar = () => {
             </div>
           </div>
           <hr className="opacity-10 " /> {/*  */}
+          {/* Main content here */}
           <Outlet />
+          
           <FaSearch className="sm:mt-2 lg:hidden text-3xl text-green-600" />
         </div>
 

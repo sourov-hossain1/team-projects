@@ -3,6 +3,7 @@ import svg from "../../../assets/undraw_questions_re_1fy7.svg";
 import ofc from "../../../assets/ofc.jpg";
 
 import { FaDivide, FaLine } from "react-icons/fa";
+import FlipCard from "../FlipCard/FlipCard";
 const Banner = () => {
   return (
     <div className="bg-base-200 ">
@@ -25,6 +26,9 @@ const Banner = () => {
           <img className="w-24 lg:w-3/4" src={svg} alt="" />
         </div>
       </div>
+
+      {/* All route in Flip Card  */}
+      <FlipCard></FlipCard>
 
       {/* Ask Question banner */}
 
