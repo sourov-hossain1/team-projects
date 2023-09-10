@@ -1,3 +1,4 @@
+import { formatDistanceToNow, parseISO } from "date-fns";
 import React from "react";
 import { BiLike } from "react-icons/Bi";
 import { FaCalendar, FaEye, FaHome } from "react-icons/fa";
@@ -72,10 +73,12 @@ const QuestionTable = ({ question }) => {
                               <span className="  text-lg rounded-2xl opacity-70">
                                 <FaCalendar />
                               </span>
-                              <span className=" opacity-60 font-semibold ">
-                                {question.date}
-                              </span>
+                              {/* <span className=" opacity-60 font-semibold ">
+                                {formatDistanceToNow(parseISO(question.date))}{" "}
+                                ago
+                              </span> */}
                             </div>
+                            <span>{question.tags}</span>
                           </div>
                           <span></span>
                         </div>
