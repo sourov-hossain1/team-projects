@@ -3,5 +3,11 @@
 @tailwind utilities;
 
 .vertical-lr {
-    writing-mode: vertical-lr;
-  }
+  writing-mode: vertical-lr;
+}
+
+.reg-bg {
+  background-image: url(./assets/reg-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

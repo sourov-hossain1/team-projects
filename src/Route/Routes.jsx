@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home";
 import Question from "../Pages/Shared/Question/Question";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import AskQuestion from "../Pages/AskQuestion/AskQuestion";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "registration",
         element: <Registration></Registration>
+      },
+      {
+        path: "askquestion",
+        element: <AskQuestion></AskQuestion>
       }
     ],
   },
