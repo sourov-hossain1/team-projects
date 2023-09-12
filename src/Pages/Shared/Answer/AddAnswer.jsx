@@ -32,6 +32,7 @@ const AddAnswer = () => {
             userImage: user.photoURL,
             commentImage: imgUrl,
             comment: comment,
+            date: new Date(),
           };
 
           fetch("http://localhost:5000/answer", {
@@ -39,7 +40,7 @@ const AddAnswer = () => {
             headers: {
               "content-type": "application/json",
             },
-            body: JSON.stringify({ commentBox, date: new Date() }),
+            body: JSON.stringify(commentBox),
           })
             .then((res) => res.json())
             .then((data) => {
