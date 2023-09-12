@@ -13,24 +13,23 @@ import { AiTwotoneLike } from "react-icons/ai";
 import { TiMessages } from "react-icons/ti";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import { Link, useParams } from "react-router-dom";
+import useAnswer from "../../../Hooks/useAnswer";
+import Answer from "./Answer";
 
 const QuestionAnswer = () => {
   const { id } = useParams();
-  console.log(id);
-
-  const [answers, setAnswers] = useState([]);
-
+  const [answers] = useAnswer();
+  const [questions, setQuestions] = useState([]);
   useEffect(() => {
     fetch("https://run-the-stack-server-delta.vercel.app/question")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setAnswers(data);
+        setQuestions(data);
       });
   }, []);
 
   // Find the matching answer based on id
-  const matchingAnswer = answers.find((answer) => answer._id === id);
+  const matchingAnswer = questions.find((answer) => answer._id === id);
 
   return (
     <div className="bg-base-200">
@@ -95,7 +94,7 @@ const QuestionAnswer = () => {
               </div>
             </div>
           </div>
-          <div className="py-4">
+          <div className="py-4 max-w-screen-2xl mx-auto ">
             <div className="bg-slate-50 rounded px-5 py-6 lg:w-full border-2 border-s-2 border-s-red-600 h-full">
               <div className=" "></div>
               <div className="flex gap-3 mb-3">
@@ -110,7 +109,7 @@ const QuestionAnswer = () => {
                 </div>
                 <div>
                   <a
-                    className="text-pink-500 font-bold hover:text-slate-600"
+                    className="text-blue-800 font-bold hover:text-slate-600"
                     href=""
                   >
                     {matchingAnswer.userName}
@@ -130,25 +129,21 @@ const QuestionAnswer = () => {
                   </p>
                 </div>
                 <div>
-                  <a className="hover:text-sky-600" href="">
-                    Comic Books
+                  <a
+                    className="bg-slate-200 hover:border-black hover:border-2 px-2 rounded"
+                    href=""
+                  >
+                    {matchingAnswer.tags}
                   </a>
                 </div>
               </div>
               <a className="text-2xl font-bold hover:text-pink-500" href="">
                 {matchingAnswer.title}
               </a>
-              <p className="mt-3 mb-3">{matchingAnswer.body}</p>
-              <div className="flex gap-3 mb-5">
-                <a
-                  className="bg-slate-200 hover:border-black hover:border-2 px-2 rounded"
-                  href=""
-                >
-                  {matchingAnswer.tags}
-                </a>
-              </div>
-              <hr />
-              <div className="lg:flex justify-between items-center gap-3 mt-5">
+              <p className="mt-1">{matchingAnswer.body}</p>
+              <div className="flex gap-3 "></div>
+              <hr className="my-3" />
+              <div className="lg:flex justify-between items-center gap-3 ">
                 <div className="flex gap-3">
                   <div className="border-2 p-2 rounded-full h-full">
                     <AiTwotoneLike
@@ -161,10 +156,10 @@ const QuestionAnswer = () => {
                     <p className="ms-2">130 Like</p>
                     <div className="ms-2 flex">
                       <div className="flex gap-2 border-2 py-2 px-3 h-full text-blue-500">
-                        <a href="">
+                        <Link to={`/addAnswer/${matchingAnswer._id}`}>
                           <TiMessages size={20} />
-                        </a>
-                        <span>2</span>
+                        </Link>
+                        <span>{answers.length}</span>
                       </div>
                       <div className="flex gap-2 items-center ms-3 border-2 py-2 px-3 h-full">
                         <FaEye />
@@ -174,11 +169,21 @@ const QuestionAnswer = () => {
                   </div>
                 </div>
                 <div className="">
-                  <button className="bg-black text-white font-bold hover:bg-pink-500 px-5 py-1 rounded">
-                    Answer
+                  <button className="bg-black text-white font-bold hover:bg-blue-900 px-5 py-1 rounded">
+                    Vote
                   </button>
                 </div>
               </div>
+              <h2></h2>
+            </div>
+            {/* answer/comment */}
+
+            <div className="">
+              {answers
+                .filter((answer) => answer.questionId === matchingAnswer._id)
+                .map((answer) => (
+                  <Answer key={answer._id} answer={answer}></Answer>
+                ))}
             </div>
           </div>{" "}
         </div>

@@ -4,8 +4,10 @@ import { BiLike } from "react-icons/Bi";
 import { FaCalendar, FaEye, FaHome } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import useAnswer from "../../../Hooks/useAnswer";
 const QuestionTable = ({ question }) => {
   // console.log(question);
+  const [answers] = useAnswer([]);
   return (
     <div className="">
       {/* colum 1 */}
@@ -55,10 +57,10 @@ const QuestionTable = ({ question }) => {
                               </span>
                             </div>
                             <div className="btn btn-sm bg-white text-blue-800">
-                              <Link to="">
+                              <Link to={`/addAnswer/${question._id}`}>
                                 <TiMessages size={23} />
                               </Link>
-                              <span>1</span>
+                              <span>{answers.length}</span>
                             </div>
                             <div className="flex gap-2 my-2">
                               <span className="  text-lg rounded-2xl opacity-70">
