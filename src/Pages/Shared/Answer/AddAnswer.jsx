@@ -30,6 +30,7 @@ const AddAnswer = () => {
             questionId,
             userName: user.displayName,
             userImage: user.photoURL,
+            userEmail: user.email,
             commentImage: imgUrl,
             comment: comment,
             date: new Date(),
