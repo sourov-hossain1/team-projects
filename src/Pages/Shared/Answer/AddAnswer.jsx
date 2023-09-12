@@ -39,7 +39,7 @@ const AddAnswer = () => {
             headers: {
               "content-type": "application/json",
             },
-            body: JSON.stringify(commentBox),
+            body: JSON.stringify({ commentBox, date: new Date() }),
           })
             .then((res) => res.json())
             .then((data) => {
