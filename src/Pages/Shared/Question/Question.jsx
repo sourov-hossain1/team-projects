@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import QuestionTable from "./QuestionTable";
 import { FaCss3, FaHome, FaHtml5, FaJs } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
+import MyQuestion from "../MyQuestion/MyQuestion";
+import Tags from "../Tags/Tags";
+import PopularQuestion from "../PopularQuestion/PopularQuestion";
 
 const Question = () => {
   const [questions, setQuestions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState("all"); // Track selected option
 
   useEffect(() => {
     fetch("https://run-the-stack-server-delta.vercel.app/question")
@@ -14,6 +18,10 @@ const Question = () => {
         setQuestions(data);
       });
   }, []);
+  // Function to handle option change
+  const handleOptionChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
   return (
     <div className="bg-base-200">
       <div className="bg-blue-900 h-52 w-full">
@@ -34,7 +42,11 @@ const Question = () => {
       {/* Dropdown Menu and Search */}
       <div className="flex flex-col md:flex-row items-center bg-white max-w-screen-2xl mx-auto p-4 md:p-0 mb-16">
         <div className="w-full md:w-1/4 py-4 md:px-4">
-          <select className="p-2 border-1 border-blue-950 bg-base-200 w-full">
+          <select
+            className="p-2 border-1 border-blue-950 bg-base-200 w-full"
+            onChange={handleOptionChange} // Handle option change
+            value={selectedOption} // Set value based on state
+          >
             <option value="all">All Questions</option>
             <option value="my">My Questions</option>
             <option value="tags">Tags</option>
@@ -61,15 +73,29 @@ const Question = () => {
 
       <div className="max-w-screen-2xl mx-auto  ">
         <div className="lg:flex gap-2">
-          <div className="lg:w-[70%]">
-            {questions.map((question) => (
-              <QuestionTable
-                key={question._id}
-                question={question}
-              ></QuestionTable>
-            ))}
-          </div>
-
+          {/* Conditional rendering based on selected option */}
+          {selectedOption === "all" ? (
+            <div className="lg:w-[70%]">
+              {questions.map((question) => (
+                <QuestionTable
+                  key={question._id}
+                  question={question}
+                ></QuestionTable>
+              ))}
+            </div>
+          ) : selectedOption === "my" ? (
+            <div className="lg:w-[70%]">
+              <MyQuestion />
+            </div>
+          ) : selectedOption === "tags" ? (
+            <div className="lg:w-[70%]">
+              <Tags />
+            </div>
+          ) : selectedOption === "popular" ? (
+            <div className="lg:w-[70%]">
+              <PopularQuestion />
+            </div>
+          ) : null}
           <div className="lg:w-[30%] ps-24">
             <h2 className="font-semibold text-2xl mt-4">-Categories </h2>
             <span className="divider pb-4" />
@@ -170,5 +196,4 @@ const Question = () => {
     </div>
   );
 };
-
 export default Question;

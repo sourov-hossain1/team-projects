@@ -14,14 +14,14 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { BiMenu } from "react-icons/Bi";
-import  userImg  from "../../../assets/user.png";
+import userImg from "../../../assets/user.png";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const handleLogout = () => {
-    logOut()
-  }
+    logOut();
+  };
 
   return (
     <div>
@@ -36,18 +36,22 @@ const Navbar = () => {
               </h2>
             </Link>
             <div className="flex justify-center items-center gap-4">
-              {
-                user? <button onClick={handleLogout}>Logout</button>: <Link to="login">Login</Link>
-              }
-              <Link>
+              {user ? (
+                <button onClick={handleLogout}>Logout</button>
+              ) : (
+                <Link to="login">Login</Link>
+              )}
+              <Link to="/dashboard">
                 <div className="avatar">
                   <div className="w-8  me-4 my-4 rounded-full  bg-white">
-                    {
-                      user? <img src={user?.photoURL} /> : <img src={userImg} className="" alt="" />
-                    }
+                    {user ? (
+                      <img src={user?.photoURL} />
+                    ) : (
+                      <img src={userImg} className="" alt="" />
+                    )}
                   </div>
                 </div>
-              </Link> 
+              </Link>
 
               <label
                 htmlFor="my-drawer-2"
@@ -60,7 +64,6 @@ const Navbar = () => {
           <hr className="opacity-10 " /> {/*  */}
           {/* Main content here */}
           <Outlet />
-          
           <FaSearch className="sm:mt-2 lg:hidden text-3xl text-green-600" />
         </div>
 
@@ -85,7 +88,7 @@ const Navbar = () => {
               </Link>
               <hr className="opacity-10 my-2" /> {/*  */}
               {/*  */}
-              <Link to="/question" className="my-1">
+              <Link to="/questions" className="my-1">
                 <p className="flex gap-2 lg:text-lg">
                   <FaUser className="my-auto text-green-500" />{" "}
                   <span>Question</span>
@@ -116,7 +119,7 @@ const Navbar = () => {
               </Link>
               <hr className="opacity-10 my-2" /> {/*  */}
               {/*  */}
-              <Link to="/" className="my-1">
+              <Link to="/contactUs" className="my-1">
                 <p className="flex gap-2 lg:text-lg">
                   <FaPhone className="my-auto text-green-500" />{" "}
                   <span>Contact Us</span>
