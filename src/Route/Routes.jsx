@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import UserProfile from "../Pages/Shared/Dashboard/UserProfile/UserProfile";
 import EditProfile from "../Pages/Shared/Dashboard/EditProfile/EditProfile";
+import AllUsers from "../Pages/Shared/AllUsers/AllUsers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: "editProfile",
         element: <EditProfile />,
+      },
+      {
+        path: "allUsers",
+        element: <AllUsers />,
       },
     ],
   },

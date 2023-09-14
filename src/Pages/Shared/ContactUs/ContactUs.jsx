@@ -27,75 +27,76 @@ const ContactUs = () => {
           </Link>
         </div>
       </div>
-
-      <div className="lg:flex gap-5 justify-center items-center py-24">
-        <div className="relative lg:w-1/2">
-          <img
-            className="rounded-s-full rounded-t-full"
-            src={girl}
-            width="500"
-            height="500"
-            alt=""
-          />
-          <div className="absolute flex gap-3 items-center bottom-2/4 -left-8 bg-cyan-950 text-white p-5 rounded-s-full rounded-e-full">
-            <div>
-              <BiSolidPhoneCall />
+      <div className="max-w-screen-xl mx-auto">
+        <div className="lg:flex gap-5 justify-center items-center py-24">
+          <div className="relative lg:w-1/2">
+            <img
+              className="rounded-s-full rounded-t-full"
+              src={girl}
+              width="500"
+              height="500"
+              alt=""
+            />
+            <div className="absolute flex gap-3 items-center bottom-2/4 -left-8 bg-cyan-950 text-white p-5 rounded-s-full rounded-e-full">
+              <div>
+                <BiSolidPhoneCall />
+              </div>
+              <div className="font-bold">
+                <span className="border-s-2 mr-3"></span> +1234 567 89
+              </div>
             </div>
-            <div className="font-bold">
-              <span className="border-s-2 mr-3"></span> +1234 567 89
+            <div className="flex gap-2 justify-center my-5">
+              <FaFacebook className="bg-blue-950 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
+              <FaInstagram className="bg-pink-700 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
+              <FaTwitter className="bg-sky-500 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
+              <FaLinkedin className="bg-blue-600 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
             </div>
           </div>
-          <div className="flex gap-2 justify-center my-5">
-            <FaFacebook className="bg-blue-950 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
-            <FaInstagram className="bg-pink-700 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
-            <FaTwitter className="bg-sky-500 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
-            <FaLinkedin className="bg-blue-600 text-white cursor-pointer p-3 rounded-full w-12 h-12" />
-          </div>
-        </div>
-        <div className="bgw-1/2 p-10 border-t-8 border-blue-600 bg-white rounded-lg rounded-br-3xl">
-          <h2 className="text-3xl font-bold py-8">Get In Touch</h2>
-          <div className="lg:flex gap-2">
-            <div className="form-control w-full">
+          <div className="bgw-1/2 p-10 border-t-8 border-blue-600 bg-white rounded-lg rounded-br-3xl">
+            <h2 className="text-3xl font-bold py-8">Get In Touch</h2>
+            <div className="lg:flex gap-2">
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text uppercase">Your Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Name..."
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text uppercase">Your Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Your Email..."
+                  className="input input-bordered"
+                />
+              </div>
+            </div>
+            <div className="form-control my-4">
               <label className="label">
-                <span className="label-text uppercase">Your Name</span>
+                <span className="label-text uppercase">Subject</span>
               </label>
               <input
                 type="text"
-                placeholder="Your Name..."
+                placeholder="Subject..."
                 className="input input-bordered"
               />
             </div>
-            <div className="form-control w-full">
+            <div className="form-control my-4">
               <label className="label">
-                <span className="label-text uppercase">Your Email</span>
+                <span className="label-text uppercase">
+                  Your Message (optional)
+                </span>
               </label>
-              <input
-                type="email"
-                placeholder="Your Email..."
-                className="input input-bordered"
-              />
+              <textarea
+                placeholder=""
+                className="textarea textarea-bordered textarea-lg w-full"
+              ></textarea>
             </div>
-          </div>
-          <div className="form-control my-4">
-            <label className="label">
-              <span className="label-text uppercase">Subject</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Subject..."
-              className="input input-bordered"
-            />
-          </div>
-          <div className="form-control my-4">
-            <label className="label">
-              <span className="label-text uppercase">
-                Your Message (optional)
-              </span>
-            </label>
-            <textarea
-              placeholder=""
-              className="textarea textarea-bordered textarea-lg w-full"
-            ></textarea>
           </div>
         </div>
       </div>

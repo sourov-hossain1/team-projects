@@ -85,7 +85,7 @@ const Question = () => {
             </div>
           ) : selectedOption === "my" ? (
             <div className="lg:w-[70%]">
-              <MyQuestion />
+              <MyQuestion questions={questions} />
             </div>
           ) : selectedOption === "tags" ? (
             <div className="lg:w-[70%]">

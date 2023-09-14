@@ -2,8 +2,10 @@ import man from "../assets/img/website-logo.png";
 import { AiTwotoneLike } from "react-icons/ai";
 import {
   FaCalendar,
+  FaCamera,
   FaChartLine,
   FaDotCircle,
+  FaEdit,
   FaEye,
   FaFacebook,
   FaFile,
@@ -20,6 +22,7 @@ import {
   FaSign,
   FaTwitter,
   FaUser,
+  FaUserEdit,
   FaUsers,
 } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
@@ -29,11 +32,71 @@ import { Link, useParams } from "react-router-dom";
 import { BiLike } from "react-icons/Bi";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import { TiMessages } from "react-icons/ti";
+import img from "../assets/user.png";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  const [userData, setUserData] = useState(null); // Store the user data
+  const [userData, setUserData] = useState(null);
   const { email } = useParams();
+
+  const updateProfile = async (e) => {
+    // Image upload
+    e.preventDefault();
+    const image = e.target.image.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    try {
+      const url = `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_IMGBB_KEY
+      }`;
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      const imageData = await response.json();
+      const imageUrl = imageData.data.display_url;
+      console.log(imageUrl);
+
+      fetch(`http://localhost:5000/users/${user.email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(imageUrl),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // rcv from server
+          if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Success!",
+              text: "coffee Updated Succesfully",
+              icon: "success",
+              confirmButtonText: "Cool",
+            });
+          }
+        });
+    } catch {}
+  };
+
+  // Display Image when user select a image
+  const [imageSrc, setImageSrc] = useState("");
+  const displayImage = (input) => {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        setImageSrc(e.target.result); // Update the state with the image data URL
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      setImageSrc("");
+    }
+  };
 
   useEffect(() => {
     fetch("https://run-the-stack-server-delta.vercel.app/users")
@@ -49,6 +112,7 @@ const Dashboard = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
+
   return (
     <div>
       <div key={user._id}>
@@ -73,6 +137,60 @@ const Dashboard = () => {
                 <div className="avatar mt-4">
                   <div className="w-24 rounded-full">
                     <img src={userData.userImage} alt="Avatar" />
+                    {/* edit profile picture */}
+                    <div
+                      onClick={() =>
+                        document.getElementById("my_modal_5").showModal()
+                      }
+                      className="absolute right-2 bottom-4 m w-6 h-6 flex items-center justify-center bg-cyan-200 rounded-full cursor-pointer"
+                    >
+                      <FaCamera className="absolute w-4 h-4"></FaCamera>
+                      {/* Modal form */}
+                      <dialog
+                        id="my_modal_5"
+                        className="modal modal-bottom sm:modal-middle"
+                      >
+                        <div className="modal-box items-center justify-center">
+                          <form onSubmit={updateProfile} action="">
+                            <div className="">
+                              <label className="label font-bold">
+                                <span className="text-lg secondary-text">
+                                  Profile Image
+                                </span>
+                              </label>
+                              <input
+                                className="bg-yellow-900"
+                                required
+                                type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                                onChange={(e) => displayImage(e.target)}
+                              />
+                            </div>
+                            <div className="mt-3 flex items-center justify-center w-56">
+                              <img
+                                id="imagePreview"
+                                src={imageSrc ? imageSrc : img}
+                                alt="Selected Image"
+                                className="max-w-[100px] max-h-[100px] rounded-full"
+                              />
+                            </div>
+                            <button
+                              type="submit"
+                              className="bg-blue-400 py-1 px-2 mt-3 rounded-lg"
+                            >
+                              Update Picture
+                            </button>
+                          </form>
+                          <div className="modal-action">
+                            <form method="dialog">
+                              <button className="btn">X</button>
+                            </form>
+                          </div>
+                        </div>
+                      </dialog>
+                    </div>
                   </div>
                 </div>
                 <h2 className="text-xl font-semibold">{userData.userName}</h2>
