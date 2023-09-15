@@ -10,9 +10,12 @@ const ManageClasses = () => {
   const [, refetch] = useCarts();
 
   const handleApproved = (classes) => {
-    fetch(`http://localhost:5000/class/approved/${classes._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `http://https://run-the-stack-server-delta.vercel.app/class/approved/${classes._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,13 +43,16 @@ const ManageClasses = () => {
       confirmButtonText: "Submit",
       showLoaderOnConfirm: true,
       preConfirm: (feedback) => {
-        return fetch(`http://localhost:5000/class/deny/${classes._id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ feedback }), // Include the feedback in the request body
-        })
+        return fetch(
+          `http://https://run-the-stack-server-delta.vercel.app/class/deny/${classes._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ feedback }), // Include the feedback in the request body
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

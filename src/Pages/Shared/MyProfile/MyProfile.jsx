@@ -64,13 +64,16 @@ const MyProfile = () => {
       const userImage = imageData.data.display_url;
       console.log(userImage);
 
-      fetch(`http://localhost:5000/users/${user.email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ userImage: userImage }),
-      })
+      fetch(
+        `http://https://run-the-stack-server-delta.vercel.app/users/${user.email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ userImage: userImage }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "http://https://run-the-stack-server-delta.vercel.app/",
 });
 
 const useAxiosSecure = () => {
