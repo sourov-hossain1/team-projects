@@ -9,8 +9,8 @@ const FlipCard = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <div className="mx-auto md:mx-5 mt-5  grid md:grid-cols-4 gap-14 md:gap-2  ">
+    <div className="max-w-screen-xl mx-auto my-40">
+      <div className="mx-auto md:mx-5  mt-5  grid lg:grid-cols-4 md:grid-cols-2 md:gap-y-16  gap-14 md:gap-2  ">
         {/* First FlipCard */}
         <div className="relative">
           <ReactFlipCard

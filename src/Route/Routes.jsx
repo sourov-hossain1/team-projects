@@ -11,10 +11,25 @@ import QuestionAnswer from "../Pages/Shared/Answer/QuestionAnswer";
 import MyQuestion from "../Pages/Shared/MyQuestion/MyQuestion";
 import ContactUs from "../Pages/Shared/ContactUs/ContactUs";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../Layout/Dashboard";
+import Dashboard from "../Pages/Shared/MyProfile/MyProfile";
 import UserProfile from "../Pages/Shared/Dashboard/UserProfile/UserProfile";
 import EditProfile from "../Pages/Shared/Dashboard/EditProfile/EditProfile";
 import AllUsers from "../Pages/Shared/AllUsers/AllUsers";
+import MyProfile from "../Pages/Shared/MyProfile/MyProfile";
+import DashBoard from "../Layout/Dashboard";
+import MySelectedClass from "../Pages/DashBoard/MySelectedClass/MySelectedClass";
+import Payment from "../Pages/DashBoard/Payment/Payment";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import MyEnrolledClass from "../Pages/DashBoard/MyEnrolledClass/MyEnrolledClass";
+import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import AddClass from "../Pages/DashBoard/AddClass/AddClass";
+import MyClasses from "../Pages/DashBoard/MyClasses/MyClasses";
+import ManageClasses from "../Pages/DashBoard/ManageClasses/ManageClasses";
+import FourOfour from "../Pages/Shared/FourOfour/FourOfour";
+import Courses from "../Pages/Shared/Courses/Courses";
+import CourseDetails from "../Pages/Shared/CourseDetails/CourseDetails";
+import Blog from "../Pages/Shared/Blog/Blog";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +62,21 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+
+      {
+        path: "/courses",
+        element: <Courses />,
+      },
+
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+
+      {
+        path: "courseDetails/:id",
+        element: <CourseDetails />,
+      },
       {
         path: "login",
         element: <Login></Login>,
@@ -78,12 +108,68 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
+    path: "myProfile",
     element: (
       <PrivateRoute>
-        <Dashboard></Dashboard>
+        <MyProfile></MyProfile>
       </PrivateRoute>
     ),
     children: [],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "MySelectedClass",
+        element: <MySelectedClass></MySelectedClass>,
+      },
+
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
+        path: "PaymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "MyEnrolledClass",
+        element: <MyEnrolledClass></MyEnrolledClass>,
+      },
+
+      {
+        path: "manageUsers",
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "addClass",
+        element: <AddClass></AddClass>,
+      },
+      {
+        path: "myclasses",
+        element: <MyClasses></MyClasses>,
+      },
+      {
+        path: "manageClasses",
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <FourOfour></FourOfour>,
   },
 ]);

@@ -41,7 +41,7 @@ const Navbar = () => {
               ) : (
                 <Link to="login">Login</Link>
               )}
-              <Link to="/dashboard">
+              <Link to="/myProfile">
                 <div className="avatar">
                   <div className="w-8  me-4 my-4 rounded-full  bg-white">
                     {user ? (
@@ -103,7 +103,7 @@ const Navbar = () => {
               </Link>
               {/*  */}
               <hr className="opacity-10 my-2" /> {/*  */}
-              <Link to="/" className="my-1">
+              <Link to="/blog" className="my-1">
                 <p className="flex gap-2 lg:text-lg">
                   <FaBookmark className="my-auto text-green-500" />{" "}
                   <span>Blog</span>
@@ -111,7 +111,7 @@ const Navbar = () => {
               </Link>
               <hr className="opacity-10 my-2" /> {/*  */}
               {/*  */}
-              <Link to="/" className="my-1">
+              <Link to="/courses" className="my-1">
                 <p className="flex gap-2 lg:text-lg">
                   <FaReadme className="my-auto text-green-500" />{" "}
                   <span>Courses</span>

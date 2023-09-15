@@ -27,11 +27,17 @@ import {
 import { FcLike } from "react-icons/fc";
 import { TiMessages } from "react-icons/ti";
 import { Link, useParams } from "react-router-dom";
+import useQuestion from "../../../../Hooks/useQuestion";
+import UserQuestion from "./UserQuestion";
 
 const UserProfile = () => {
   const [users, setUsers] = useState([]);
   const { email } = useParams();
-  console.log(email);
+  const [questions] = useQuestion([]);
+  const filteredQuestions = questions.filter(
+    (question) => question.email === email
+  );
+
   useEffect(() => {
     fetch("https://run-the-stack-server-delta.vercel.app/users")
       .then((res) => res.json())
@@ -104,31 +110,33 @@ const UserProfile = () => {
                         {/* visit */}
                         <a
                           href="#_"
-                          class="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
+                          className="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
                         >
-                          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-primary group-hover:translate-x-0 ease">
+                          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-primary group-hover:translate-x-0 ease">
                             <svg
-                              class="w-40 h-6"
+                              className="w-40 h-6"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                               ></path>
                             </svg>
                           </span>
-                          <span class="absolute flex items-center justify-center w-full h-full text-primary transition-all duration-300 transform group-hover:translate-x-full ease">
+                          <span className="absolute flex items-center justify-center w-full h-full text-primary transition-all duration-300 transform group-hover:translate-x-full ease">
                             <FaEye />{" "}
                             <span className="ms-2">
                               Visits <span className="ms-60">5</span>{" "}
                             </span>
                           </span>
-                          <span class="relative invisible">Button Text</span>
+                          <span className="relative invisible">
+                            Button Text
+                          </span>
                         </a>
                       </div>
                       {/*  */}
@@ -136,31 +144,33 @@ const UserProfile = () => {
                         {/* question */}
                         <a
                           href="#_"
-                          class="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
+                          className="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
                         >
-                          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-red-400 group-hover:translate-x-0 ease">
+                          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-red-400 group-hover:translate-x-0 ease">
                             <svg
-                              class="w-40 h-6"
+                              className="w-40 h-6"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                               ></path>
                             </svg>
                           </span>
-                          <span class="absolute flex items-center justify-center w-full h-full text-red-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          <span className="absolute flex items-center justify-center w-full h-full text-red-500 transition-all duration-300 transform group-hover:translate-x-full ease">
                             <FaQuestionCircle />{" "}
                             <span className="ms-2">
                               Question <span className="ms-60">5</span>{" "}
                             </span>
                           </span>
-                          <span class="relative invisible">Button Text</span>
+                          <span className="relative invisible">
+                            Button Text
+                          </span>
                         </a>
                       </div>
                       {/* Answer */}
@@ -169,31 +179,33 @@ const UserProfile = () => {
                         {/* Answer */}
                         <a
                           href="#_"
-                          class="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
+                          className="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
                         >
-                          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-green-600 group-hover:translate-x-0 ease">
+                          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-green-600 group-hover:translate-x-0 ease">
                             <svg
-                              class="w-40 h-6"
+                              className="w-40 h-6"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                               ></path>
                             </svg>
                           </span>
-                          <span class="absolute flex items-center justify-center w-full h-full text-green-600 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          <span className="absolute flex items-center justify-center w-full h-full text-green-600 transition-all duration-300 transform group-hover:translate-x-full ease">
                             <FaSign />{" "}
                             <span className="ms-2">
                               Answer <span className="ms-60">5</span>{" "}
                             </span>
                           </span>
-                          <span class="relative invisible">Button Text</span>
+                          <span className="relative invisible">
+                            Button Text
+                          </span>
                         </a>
                       </div>
                       {/* Follower */}
@@ -202,31 +214,33 @@ const UserProfile = () => {
                         {/* Follower */}
                         <a
                           href="#_"
-                          class="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
+                          className="relative inline-flex items-center justify-center p-4 w-96 px-6 py-3 overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-base-500 rounded-full shadow-md group"
                         >
-                          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange-600 group-hover:translate-x-0 ease">
+                          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange-600 group-hover:translate-x-0 ease">
                             <svg
-                              class="w-40 h-6"
+                              className="w-40 h-6"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                               ></path>
                             </svg>
                           </span>
-                          <span class="absolute flex items-center justify-center w-full h-full text-orange-600 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          <span className="absolute flex items-center justify-center w-full h-full text-orange-600 transition-all duration-300 transform group-hover:translate-x-full ease">
                             <FaUsers />{" "}
                             <span className="ms-2">
                               Follower <span className="ms-60">5</span>{" "}
                             </span>
                           </span>
-                          <span class="relative invisible">Button Text</span>
+                          <span className="relative invisible">
+                            Button Text
+                          </span>
                         </a>
                       </div>
 
@@ -287,122 +301,10 @@ const UserProfile = () => {
 
                 <div className="w-[93%] mx-auto lg:w-[70%] border-black">
                   {/* user question */}
-                  <div className="py-4">
-                    <div className="bg-slate-50 rounded px-5 py-6 lg:w-full border-2 border-s-2 border-s-red-600 h-full">
-                      <div className=" "></div>
-                      <div className="flex gap-3 mb-3">
-                        <div>
-                          <img
-                            className="rounded-full"
-                            src={user.userImage}
-                            alt="man"
-                            width={30}
-                            height={30}
-                          />
-                        </div>
-                        <div>
-                          <a
-                            className="text-pink-500 font-bold hover:text-slate-600"
-                            href=""
-                          >
-                            Sophie Taylor
-                          </a>
-                        </div>
-                        <div>
-                          <p className="bg-blue-600 px-2 text-white rounded">
-                            Enlightened
-                          </p>
-                        </div>
-                        <div>
-                          <p>
-                            Asked:{" "}
-                            <a
-                              className="text-slate-600 hover:text-slate-900"
-                              href=""
-                            >
-                              January 4, 2022
-                            </a>
-                          </p>
-                        </div>
-                        <div>
-                          <a className="hover:text-sky-600" href="">
-                            Comic Books
-                          </a>
-                        </div>
-                      </div>
-                      <a
-                        className="text-2xl font-bold hover:text-pink-500"
-                        href=""
-                      >
-                        What five Marvel characters do you choose to ensure your
-                        safety?
-                      </a>
-                      <p className="mt-3 mb-3">
-                        The entire DC Universe is out to assassinate you. What
-                        five Marvel characters do you choose to ensure your
-                        safety and why? The entire DC Universe? OK, I’m going to
-                        need some heavy hitters here.
-                      </p>
-                      <div className="flex gap-3 mb-5">
-                        <a
-                          className="bg-slate-200 hover:border-black hover:border-2 px-2 rounded"
-                          href=""
-                        >
-                          Education
-                        </a>
-                        <a
-                          className="bg-slate-200 hover:border-black hover:border-2 px-2 rounded"
-                          href=""
-                        >
-                          Science
-                        </a>
-                      </div>
-                      <hr />
-                      <div className="lg:flex justify-between items-center gap-3 mt-5">
-                        <div className="flex gap-3">
-                          <div className="border-2 p-2 rounded-full h-full">
-                            <AiTwotoneLike
-                              className="text-slate-900 bg-white "
-                              size={20}
-                            />
-                          </div>
-                          <div className="border-s-2 "></div>
-                          <div className="ms-2 flex items-center">
-                            <BiLike
-                              className="bg-blue-600 rounded-full text-white"
-                              size={20}
-                            />
-                            <FcLike
-                              className="text-slate-50 bg-red-200 rounded-full"
-                              size={20}
-                            />
-                            <CgSmileMouthOpen
-                              className="bg-yellow-300 rounded-full"
-                              size={20}
-                            />
-                            <p className="ms-2">130 users</p>
-                            <div className="ms-2 flex">
-                              <div className="flex gap-2 border-2 py-2 px-3 h-full text-blue-500">
-                                <a href="">
-                                  <TiMessages size={20} />
-                                </a>
-                                <span>2</span>
-                              </div>
-                              <div className="flex gap-2 items-center ms-3 border-2 py-2 px-3 h-full">
-                                <FaEye />
-                                <p>6K Views</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="">
-                          <button className="bg-black text-white font-bold hover:bg-pink-500 px-5 py-1 rounded">
-                            Answer
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Display user's questions */}
+                  {filteredQuestions.map((question) => (
+                    <UserQuestion key={question._id} question={question} />
+                  ))}
                 </div>
               </div>
             </div>

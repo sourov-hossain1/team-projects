@@ -7,9 +7,9 @@ import FlipCard from "../FlipCard/FlipCard";
 const Banner = () => {
   return (
     <div className="bg-base-200 ">
-      <div className="bg-[#0a48b3] lg:rounded-b-[150px] h-48  lg:h-[600px] grid lg:grid-cols-2 justify-center items-center">
+      <div className="bg-[#0a48b3] lg:rounded-b-[150px] h-80  lg:h-[600px] grid md:grid-cols-2 md:px-40 lg:grid-cols-2  justify-center items-center ">
         <div className=" lg:ms-24">
-          <h2 className="text-white font-bold lg:text-5xl text-lg ">
+          <h2 className="text-white font-bold lg:text-5xl text-2xl ">
             Run The Stack <br className="pt-4" /> is an QNA Type Website
           </h2>
 
@@ -23,7 +23,7 @@ const Banner = () => {
           </div>
         </div>
         <div>
-          <img className="w-24 lg:w-3/4" src={svg} alt="" />
+          <img className="w-60 lg:w-3/4" src={svg} alt="" />
         </div>
       </div>
 

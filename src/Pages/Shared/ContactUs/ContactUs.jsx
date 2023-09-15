@@ -8,8 +8,30 @@ import {
 import girl from "../../../assets/girl.jpg";
 import { BiSolidPhoneCall } from "react-icons/Bi";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_uki2azi",
+        "template_r94rfnx",
+        form.current,
+        "fvLnTtQCIYZak3eLw"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <div className="bg-slate-200">
       <div className="bg-blue-900 h-52 w-full">
@@ -54,49 +76,58 @@ const ContactUs = () => {
           </div>
           <div className="bgw-1/2 p-10 border-t-8 border-blue-600 bg-white rounded-lg rounded-br-3xl">
             <h2 className="text-3xl font-bold py-8">Get In Touch</h2>
-            <div className="lg:flex gap-2">
-              <div className="form-control w-full">
+            <form ref={form} onSubmit={sendEmail} action="">
+              <div className="lg:flex gap-2">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text uppercase">Your Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name..."
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text uppercase">Your Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email..."
+                    className="input input-bordered"
+                  />
+                </div>
+              </div>
+              <div className="form-control my-4">
                 <label className="label">
-                  <span className="label-text uppercase">Your Name</span>
+                  <span className="label-text uppercase">Subject</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Your Name..."
+                  name="subject"
+                  placeholder="Subject..."
                   className="input input-bordered"
                 />
               </div>
-              <div className="form-control w-full">
+              <div className="form-control my-4">
                 <label className="label">
-                  <span className="label-text uppercase">Your Email</span>
+                  <span className="label-text uppercase">
+                    Your Message (optional)
+                  </span>
                 </label>
-                <input
-                  type="email"
-                  placeholder="Your Email..."
-                  className="input input-bordered"
-                />
+                <textarea
+                  name="msg"
+                  placeholder=""
+                  className="textarea textarea-bordered textarea-lg w-full"
+                ></textarea>
               </div>
-            </div>
-            <div className="form-control my-4">
-              <label className="label">
-                <span className="label-text uppercase">Subject</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Subject..."
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control my-4">
-              <label className="label">
-                <span className="label-text uppercase">
-                  Your Message (optional)
-                </span>
-              </label>
-              <textarea
-                placeholder=""
-                className="textarea textarea-bordered textarea-lg w-full"
-              ></textarea>
-            </div>
+              <button type="submit" className="btn">
+                Send Mail
+              </button>
+            </form>
           </div>
         </div>
       </div>

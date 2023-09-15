@@ -37,7 +37,7 @@ const QuestionBanner = () => {
                 Our Latest Question
               </h1>
 
-              <img className="my-8 ps-4 w-80" src={rcnt} alt="" />
+              <img className="my-8 ps-4 w-48 lg:w-80" src={rcnt} alt="" />
             </div>
           </div>{" "}
         </div>
@@ -134,7 +134,7 @@ const QuestionBanner = () => {
         </div>
         <div>
           <img
-            className="lg:w-80 w-52 pt-40 lg:ms-8 mx-auto"
+            className="hidden lg:block md:block lg:w-80 w-52 pt-40 lg:ms-8 mx-auto"
             src={img}
             alt=""
           />
