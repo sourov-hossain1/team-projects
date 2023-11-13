@@ -4,6 +4,7 @@ import {
   FaBookmark,
   FaChartArea,
   FaChartBar,
+  FaFacebookMessenger,
   FaHome,
   FaOpencart,
   FaPhone,
@@ -92,6 +93,13 @@ const Navbar = () => {
                 <p className="flex gap-2 lg:text-lg">
                   <FaUser className="my-auto text-green-500" />{" "}
                   <span>Question</span>
+                </p>
+              </Link>
+              <hr className="opacity-10 my-2" /> {/*  */}
+              <Link to="/chatbot" className="my-1">
+                <p className="flex gap-2 lg:text-lg">
+                  <FaFacebookMessenger className="my-auto text-green-500" />{" "}
+                  <span>Chatbot</span>
                 </p>
               </Link>
               <hr className="opacity-10 my-2" /> {/*  */}

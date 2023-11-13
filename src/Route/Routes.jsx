@@ -30,6 +30,7 @@ import FourOfour from "../Pages/Shared/FourOfour/FourOfour";
 import Courses from "../Pages/Shared/Courses/Courses";
 import CourseDetails from "../Pages/Shared/CourseDetails/CourseDetails";
 import Blog from "../Pages/Shared/Blog/Blog";
+import Chatbot from "../Chatbot/Chatbot";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        path: "/chatbot",
+        element: <Chatbot></Chatbot>
       },
 
       {
